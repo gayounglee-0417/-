@@ -55,9 +55,18 @@ a.logo,
 
   #header .logo {
     display: inline-block;
-    width: auto;
-    vertical-align: top;
+    vertical-align: top !important;
+    margin: 0;
+    padding: 0;
 
+  }
+  #header .logo img {
+    vertical-align: top !important;   /* 기준선을 위로 */
+    display: inline-block;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    height: 40px; /* 필요한 크기로 조절 */
   }
 }
 
