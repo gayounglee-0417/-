@@ -60,12 +60,15 @@ a.logo,
   }
 
   .logo-text {
-    display: block !important;
+    display: inline-block !important;
     font-size: 16px;
     font-family: "둥근모", sans-serif;
     color: white;
-    width: 100%;
-    margin-left:10px;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
   }
 
   #header .logo {
