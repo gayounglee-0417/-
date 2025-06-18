@@ -69,7 +69,8 @@ a.logo,
 
   #header .logo img {
     max-width: 100%;
-    height: auto;
+    height: 50px; 
+    object-fit: contain;
     margin-top:-10px;
   }
 }
