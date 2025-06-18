@@ -1,0 +1,64 @@
+@font-face {
+    font-family: '박다현';
+    src: url('fonts/온글잎 박다현체.ttf') format('truetype');
+}
+body {
+  background-size: cover;
+  font-family: '박다현';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-wrapper {
+  width: 350px;
+  padding: 40px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login-wrapper h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-wrapper input {
+  width: 100%;
+  padding: 10px;
+  margin-left: -10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.login-wrapper button {
+  width: 100%;
+  padding: 12px;
+  background: #730e0e;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.login-wrapper .link {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.login-wrapper .link a {
+  color: #730e0e;
+  text-decoration: none;
+}
+
+.img-btn {
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <title>게시글</title>
+    <style>
+    body {
+      background: black;
+      background-image: url("images/마른네모.png"), url("images/마른네모.png");
+      background-repeat: repeat, repeat;
+      background-size: 50px 50px, 50px 50px;
+      background-position: 25px 25px, 0 0;
+    }
+    .post-box {
+      display: flex;
+      flex-direction: column;/* 수직 중앙 정렬 */
+      align-items: center;
+      background-color: black;
+      border: 0.4px solid #ffffff;
+      padding: 20px;
+      width: 100%;
+      min-height: 600px;
+      position: relative;
+    }
+
+    #post-meta {
+      width: 100%;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
+    #post-title {
+      text-align: center;
+      color: white;
+      font-size: 32px;
+      border-bottom: 0.4px solid #ffffff;
+      display: block;
+      width: 100%;
+      font-family: "둥근모";
+    }
+
+    #title {
+      text-align: center;
+      color: white;
+      border-bottom: 2px solid #ffffff;
+      display: block;
+      width: 100%;
+    }
+
+    #post-content {
+      border-bottom: solid 1px rgba(160, 160, 160, 0.3);
+      display: block;
+      width: 100%;
+      font-family: "둥근모";
+      margin-bottom: 20px;
+    }
+
+    .post-author {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .post-author a {
+      text-decoration: none !important;
+      display: inline-block;
+      border-bottom: none !important;
+    }
+
+    .author-avatar {
+      width: 33px;
+      height: 33px;
+      border-radius: 50%;
+      object-fit: cover;
+      border-bottom: none !important;
+      display: block;
+    }
+    
+    .author-nickname {
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .return-btn {
+      align-self: flex-end; /* 오른쪽 */
+      margin-top: 20px;
+      margin-right: 20px;
+    }
+
+    #footer .icons {
+      display: flex;
+      justify-content: center; /* 중앙 정렬 */
+      align-items: center;
+      padding: 0;
+      list-style: none;
+    }
+    #footer .copyright {
+      color: white;
+      text-align: center;
+    }
+
+    /* 게시글 내 큰 이미지 */
+    .full-image {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 20px 0;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 8px;
+    }
+
+    h3 {
+      text-align: center;
+      margin-top: 16px;
+    }
+
+    #comment-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      align-self: flex-start; /*왼쪽으로 */
+      width: 100%;
+    }
+
+    /* 댓글 한 줄 레이아웃 */
+    #comment-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 0;
+      border-top: solid 1px rgba(160, 160, 160, 0.3);
+      border-bottom: solid 1px rgba(160, 160, 160, 0.3); /* 댓글 사이에 약한 선 */
+    }
+
+    /* 댓글 아바타 */
+    .comment-avatar {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* 닉네임 */
+    .comment-nickname {
+      font-size: 15px;
+      color: white;
+    }
+
+    .comment-nickname::after {
+      content: "";
+      display: inline-block;
+      width: 2px;
+      height: 20px; /* 길이 */
+      background-color: rgba(160, 160, 160, 0.3);
+      margin: 0 8px;
+      vertical-align: middle;
+    }
+
+    /* 댓글 텍스트 */
+    .comment-text {
+      color: white;
+      flex: 1; /* 텍스트가 남는 공간 꽉 채움 */
+      word-break: break-word;
+      font-size: 10px;
+      font-family: "둥근모";
+    }
+
+
+    /* 댓글 입력 영역 */
+    .comment-input-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    /* 입력창 textarea */
+    #comment-input {
+      flex: 1;
+      min-height: 50px;
+      border: 1px solid #ffffff;
+      background-color: black;
+      color: white;
+      padding: 8px;
+      resize: vertical;
+    }
+
+    .comment-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      width: 100%;
+    }
+
+    .button.small {
+      padding: 4px 8px;
+      font-size: 8px;
+      line-height: 1; /* 줄간격도 적당히 맞추기 */
+    }
+
+    .button.small.comment-add {
+      padding: 2px 12px;
+      font-size: 9px;
+      line-height: 1; /* 줄간격도 적당히 맞추기 */
+    }
+
+
+    .button.small.comment-delete {
+      padding: 2px 12px;
+      font-size: 7px;
+      line-height: 1; /* 줄간격도 적당히 맞추기 */
+    }
+
+    .comment-delete {
+      margin-left: auto; /* 오른쪽으로 밀어내기 (flex 컨테이너에서 유효) */
+    }
+    .author-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .post-date {
+      font-size: 15px;
+    }
+
+    #post-price {
+      width: 100%;
+      text-align: right;
+      padding-right: 10px;
+      color: white;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .price-highlight {
+      background-color: rgb(58, 58, 58);
+      padding: 3px 6px;
+      border: 0.4px solid #d9d9d9;
+    }
+        
+  </style>
+</head>
+
+<body>
+  <div id="wrapper">
+    <header id="header">
+              <a href="index.html" class="logo"><img src="images/simspott.png" alt="심스팥" /></a>
+              <nav class="links">
+                <ul class="SMN_effect-68">
+                  <li><a href="map.html">심령스팟</a></li>
+                  <li><a href="boards.html">게시판</a></li>
+                  <li><a href="photos.html">사진첩</a></li>
+                  <li><a href="market.html">장터</a></li>
+                </ul>
+              </nav>
+              <nav class="main">
+                <ul>
+                  <li class="search">
+                    <a class="fa-search" href="#search">Search</a>
+                    <form id="search" method="get" action="#">
+                      <input type="text" name="query" placeholder="Search" />
+                    </form>
+                  </li>
+                  <li class="menu">
+                    <a class="fa-bars" href="#menu">Menu</a>
+                  </li>
+                </ul>
+              </nav>
+            </header>
+    <div class="post-box">
+      <h1 id="post-title">제목</h1>
+      <div id="post-meta"></div>
+      <div id="post-content">내용 불러오는 중...</div>
+      <div id="post-price"></div>
+      <h3><댓글></h3>
+      <ul id="comment-list"></ul>
+
+      <!-- 댓글 입력 박스 (댓글 목록 아래에 위치) -->
+      <div class="comment-input-box" id="comment-input-box">
+        <textarea id="comment-input" placeholder="댓글을 남겨보세요..."></textarea>
+        <button class="button small comment-add" onclick="addComment()">등록</button>
+      </div>
+
+      <div class="return-btn">
+        <button id="back-link" class="button large">돌아가기</button>
+      </div>
+        <button id="delete-btn" class="button large">🗑 이 글 삭제하기</button>
+    </div>
+  </div>
+
+
+  <!-- Menu -->
+					<section id="menu">
+
+						<!-- Search -->
+							<section>
+								<form class="search" method="get" action="#">
+									<input type="text" name="query" placeholder="Search" />
+								</form>
+							</section>
+
+						<!-- Links -->
+							<section>
+								<ul class="links">
+									<li>
+										<a href="map.html">
+											<h3>심령스팟</h3>
+											<p>국내 심령스팟을 확인할 수 있습니다.</p>
+										</a>
+									</li>
+									<li>
+										<a href="boards.html">
+											<h3>게시판</h3>
+											<p>각종 무서운 이야기를 공유하는 공간입니다.</p>
+										</a>
+									</li>
+									<li>
+										<a href="photos.html">
+											<h3>사진첩</h3>
+											<p>심령사진을 공유하는 공간입니다.</p>
+										</a>
+									</li>
+									<li>
+										<a href="market.html">
+											<h3>장터</h3>
+											<p>오컬트적인 물건들을 거래하는 공간입니다.</p>
+										</a>
+									</li>
+								</ul>
+							</section>
+
+						<!-- Actions -->
+							<section>
+								<ul id="loginbtn" class="actions stacked">
+									<li><a href="login.html" class="button large fit">Log In</a></li>
+								</ul>
+							</section>
+
+					</section>
+
+						<!-- Footer -->
+							<section id="footer">
+								<ul class="icons">
+									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon solid fa-rss"><span class="label">RSS</span></a></li>
+									<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+								<p class="copyright">&copy; Untitled. Design: <a href="https://github.com/gayounglee-0417">이가영</a>. Images: <a href="https://kr.pinterest.com/">Pinterest</a>.</p>
+							</section>
+
+					</section>
+  <script>
+  function openChat(targetId, targetName, avatarUrl) {
+    window.open(
+      `chat.html?target=${targetId}&name=${encodeURIComponent(targetName)}&avatar=${encodeURIComponent(avatarUrl || 'images/익명.jpg')}`,
+      "_blank",
+      `width=360,height=500,left=100,top=100`
+    );
+  }
+</script>
+  <script src="board.js"></script>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="login-status.js" defer></script>
+</body>
+</html>

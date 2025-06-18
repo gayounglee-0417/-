@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <title>사진첩</title>
+    <style>
+    body {
+      background: black;
+      background-image: url("images/마른네모.png"), url("images/마른네모.png");
+      background-repeat: repeat, repeat;
+      background-size: 50px 50px, 50px 50px;
+      background-position: 25px 25px, 0 0;
+    }
+    .photos {
+      display: flex;
+      flex-direction: column;/* 수직 중앙 정렬 */
+      background-color: black;
+      border: 0.4px solid #ffffff;
+      padding: 20px;
+      width: 100%;
+      min-height: 600px;
+      position: relative;
+    }
+
+    #title {
+      text-align: center;
+      color: white;
+      border-bottom: 2px solid #ffffff;
+      display: block;
+      width: 100%;
+      font-family: "다카포";
+    }
+
+    .page-nav {
+        text-align: center;
+        font-family:"다카포";
+        margin-top: 30px
+    }
+
+    .page-nav a {
+        display: inline-block;
+        margin: 0 5px;
+        padding: 5px 10px;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        color: #333;
+    }
+
+    .page-nav .page {
+        background-color: #f2f2f2;
+    }
+
+    .page-nav a:hover {
+        background-color: #ddd;
+    }
+
+    .page-nav .prev,
+    .page-nav .next {
+        font-family:"다카포";
+        color: #ddd;
+    }
+
+    .return-btn {
+      align-self: flex-end; /* 오른쪽 */
+      margin-top: 20px;
+      margin-right: 20px;
+    }
+
+    .write-btn {
+      align-self: center; /* 오른쪽 */
+      margin-top: 20px;
+      margin-right: 20px;
+    }
+
+    #footer .icons {
+      display: flex;
+      justify-content: center; /* 중앙 정렬 */
+      align-items: center;
+      padding: 0;
+      list-style: none;
+    }
+    #footer .copyright {
+      color: white;
+      text-align: center;
+    }
+
+   .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 10px;
+      margin-top: 20px;
+      justify-content: start;
+      justify-items: start;
+    }
+  
+    .photo-item img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 4px;
+      cursor: pointer;
+      border: 0.4px solid rgb(187, 187, 187);
+      margin: 0;
+    }
+  
+    
+    
+  </style>
+</head>
+
+<body>
+  <div id="wrapper">
+    <header id="header">
+              <a href="index.html" class="logo"><img src="images/simspott.png" alt="심스팥" /></a>
+              <nav class="links">
+                <ul class="SMN_effect-68">
+                  <li><a href="map.html">심령스팟</a></li>
+                  <li><a href="boards.html">게시판</a></li>
+                  <li><a href="photos.html">사진첩</a></li>
+                  <li><a href="market.html">장터</a></li>
+                </ul>
+              </nav>
+              <nav class="main">
+                <ul>
+                  <li class="search">
+                    <a class="fa-search" href="#search">Search</a>
+                    <form id="search" method="get" action="#">
+                      <input type="text" name="query" placeholder="Search" />
+                    </form>
+                  </li>
+                  <li class="menu">
+                    <a class="fa-bars" href="#menu">Menu</a>
+                  </li>
+                </ul>
+              </nav>
+            </header>
+    <div class="photos">
+        <div id="title">
+            <h1><사진첩></h1>
+            <p>심령사진을 공유하는 공간입니다.</p>
+        </div>
+
+        <div id="photo-list" class="photo-grid"></div>
+
+        <div class="page-nav">
+            <a href="#" class="prev">이전</a>
+            <a href="#" class="page">1</a>
+            <a href="#" class="page">2</a>
+            <a href="#" class="page">3</a>
+            <!-- 추가할거면 추가 -->
+            <a href="#" class="next">다음</a>
+        </div>
+
+        <div class="return-btn">
+            <a href="index.html" class="button large">돌아가기</a>
+        </div>
+
+        <div class="write-btn">
+            <a href="write.html?category=사진첩" class="button large">글쓰기</a>
+        </div>
+
+    </div>
+  </div>
+  <!-- Menu -->
+					<section id="menu">
+
+						<!-- Search -->
+							<section>
+								<form class="search" method="get" action="#">
+									<input type="text" name="query" placeholder="Search" />
+								</form>
+							</section>
+
+						<!-- Links -->
+							<section>
+								<ul class="links">
+									<li>
+										<a href="map.html">
+											<h3>심령스팟</h3>
+											<p>국내 심령스팟을 확인할 수 있습니다.</p>
+										</a>
+									</li>
+									<li>
+										<a href="boards.html">
+											<h3>게시판</h3>
+											<p>각종 무서운 이야기를 공유하는 공간입니다.</p>
+										</a>
+									</li>
+									<li>
+										<a href="photos.html">
+											<h3>사진첩</h3>
+											<p>심령사진을 공유하는 공간입니다.</p>
+										</a>
+									</li>
+									<li>
+										<a href="market.html">
+											<h3>장터</h3>
+											<p>오컬트적인 물건들을 거래하는 공간입니다.</p>
+										</a>
+									</li>
+								</ul>
+							</section>
+
+						<!-- Actions -->
+							<section>
+								<ul id="loginbtn" class="actions stacked">
+									<li><a href="login.html" class="button large fit">Log In</a></li>
+								</ul>
+							</section>
+
+					</section>
+
+						<!-- Footer -->
+							<section id="footer">
+								<ul class="icons">
+									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon solid fa-rss"><span class="label">RSS</span></a></li>
+									<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+								<p class="copyright">&copy; Untitled. Design: <a href="https://github.com/gayounglee-0417">이가영</a>. Images: <a href="https://kr.pinterest.com/">Pinterest</a>.</p>
+							</section>
+
+					</section>
+ 
+  <script src="photos.js"></script>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="login-status.js" defer></script>
+</body>
+</html>
