@@ -27,10 +27,36 @@
 	font-family: '다카포';
 	src: url('../fonts/MapoDacapo.ttf') format('truetype');
 	}
-/*
-	Future Imperfect by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use모";
+#header .logo img {
+  height: 50px; 
+  object-fit: contain;
+  padding-left: 1.5em;
+  margin-top: 5px;
+}
+
+a.logo,
+	#header a.logo,
+	#header .logo {
+	border-bottom: none !important;
+}
+
+.SMN_effect-68 a:hover {
+  animation: blur-a 3s ease-out infinite;
+  text-shadow: 0px 0px 5px #fff, 0px 0px 7px #fff;
+}
+
+.logo-text {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .logo-img {
+    display: none !important;
+  }
+
+  .logo-text {
+    display: inline-block !important;
+    font-size: 24px;
+    font-weight: bold;
     color: white;
     margin-top: -10px;
   }
