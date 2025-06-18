@@ -109,7 +109,7 @@ a.logo,
     display: inline-block !important;
   }
   #header nav.links ul li::after {
-    content: none !important;
+    display: none !important;
   }
 }
 
