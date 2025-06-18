@@ -65,7 +65,7 @@ a.logo,
     font-family: "둥근모", sans-serif;
     color: white;
     width: 100%;
-    display:flex-start;
+    margin-left:10px;
   }
 
   #header .logo {
