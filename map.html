@@ -98,17 +98,14 @@
 
 @media screen and (max-width: 768px) {
   .map {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: auto;
-    box-sizing: border-box;
+    flex-direction: column !important; /* info-box 아래로 */
+    align-items: center;
   }
 
-  .map img,
-  .map svg {
-    max-width: 100%;
-    height: auto;
-    display: block;
+  #info-box {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
   }
 }
   </style>
