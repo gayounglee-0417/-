@@ -30,41 +30,7 @@
 /*
 	Future Imperfect by HTML5 UP
 	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
-#header .logo img {
-  height: 50px; 
-  object-fit: contain;
-  padding-left: 1.5em;
-  margin-top: 5px;
-}
-
-a.logo,
-	#header a.logo,
-	#header .logo {
-	border-bottom: none !important;
-}
-
-.SMN_effect-68 a:hover {
-  animation: blur-a 3s ease-out infinite;
-  text-shadow: 0px 0px 5px #fff, 0px 0px 7px #fff;
-}
-
-.logo-text {
-  display: none;
-}
-
-/* 모바일에서는 이미지 숨기고 글씨 보이게 */
-@media screen and (max-width: 768px) {
-  .logo-img {
-    display: none !important;
-  }
-
-  .logo-text {
-    display: inline-block !important;
-    font-size: 24px;
-    font-weight: bold;
+	Free for personal and commercial use모";
     color: white;
     margin-top: -10px;
   }
