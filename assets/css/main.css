@@ -49,26 +49,11 @@ a.logo,
   display: inline-block;
 }
 
-.logo-text {
-  display: none;
-}
 
 /* 모바일에서는 이미지 숨기고 글씨 보이게 */
 @media screen and (max-width: 768px) {
   .logo-img {
     display: none !important;
-  }
-
-  .logo-text {
-    display: block !important;
-    font-size: 16px;
-    font-family: "둥근모", sans-serif;
-    color: white;
-    white-space: nowrap;
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    vertical-align: middle;
   }
 
   #header .logo {
