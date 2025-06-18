@@ -69,8 +69,10 @@ a.logo,
   }
 
   #header .logo {
-    display: block;
-    width: 100%;
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+
   }
 }
 
