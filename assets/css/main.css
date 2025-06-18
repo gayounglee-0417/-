@@ -61,10 +61,10 @@ a.logo,
 
   .logo-text {
     display: inline-block !important;
-    font-size: 24px;
+    font-size: 14px;
     font-weight: bold;
+    font-family:"둥근모";
     color: white;
-    margin-top: -10px;
   }
 }
 
