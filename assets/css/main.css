@@ -52,9 +52,6 @@ a.logo,
 
 /* 모바일에서는 이미지 숨기고 글씨 보이게 */
 @media screen and (max-width: 768px) {
-  .logo-img {
-    display: none !important;
-  }
 
   #header .logo {
     display: inline-block;
