@@ -60,14 +60,22 @@ a.logo,
   }
 
   .logo-text {
-    display: inline-block !important;
-    font-size: 14px;
-    font-family:"둥근모";
-    color: white;
     display: block !important;
+    font-size: 18px;
+    font-family: "둥근모", sans-serif;
+    color: white;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  #header .logo {
+    display: block;
+    width: 100%;
+    text-align: center;
   }
 }
 
