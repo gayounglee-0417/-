@@ -62,7 +62,6 @@ a.logo,
   .logo-text {
     display: inline-block !important;
     font-size: 14px;
-    font-weight: bold;
     font-family:"둥근모";
     color: white;
   }
